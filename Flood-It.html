@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<style>
+		body {
+			margin: 0px;
+			padding: 0px;
+			display: table;
+			width: 100%;
+		}
+		#controls {
+			position: absolute;
+			top: 5px;
+			left: 5px;
+			width: 100%;
+		}
+		#gameform {
+			background-image: url('logo.png');
+			background-repeat: no-repeat;
+			background-position: 0px center;
+			background-size: 42px 42px;
+			padding-left: 50px;
+			height: 42px;
+			width: 315px;
+			margin-left:auto;
+			margin-right:auto;
+		}
+		#gameform > * {
+			margin-top: 12px;
+		}
+		#container {
+			display: table-cell;
+			text-align: center;
+		}
+		#container2 {
+			display: table-cell;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+<div id="container"></div>
+<div id="controls">
+	<form method="GET" id="gameform" action>
+		Size:
+		<select id ="size">
+			<option value="6">6 x 6</option>
+			<option value="10">10 x 10</option>
+			<option selected="selected" value="14">14 x 14</option>
+			<option value="18">18 x 18</option>
+			<option value="22">22 x 22</option>
+			<option value="26">26 x 26</option>
+		</select>
+		Colors :
+		<select id ="colors">
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option selected="selected" value="6">6</option>
+			<option value="7">7</option>
+			<option value="8">8</option>
+		</select>
+		<input type="button" onclick="controller.resetGame()" value="Restart">
+	</form>
+</div>
+<div id="container2"></div>
+<script src="kinetic-v5.1.0.min.js"></script>
+<script src="model.js"></script>
+<script src="controller.js"></script>
+<script>
+	var model = new FlooditModel();
+	var controller = new FlooditController(model);
+	controller.initGame();
+</script>
+</body>
+</html>
